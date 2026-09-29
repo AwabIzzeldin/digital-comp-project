@@ -1,0 +1,61 @@
+Script planning
+
+
+Chosen Technology: Ride-hailing (i.e. Grab)
+
+
+The chosen technology is Ride-hailing. The goal is to recreate a similar experience through C++. To start, a flow chart starting with an input and ouput must be considered before coding could start.
+
+According to the assignment specification, Ride-hailing is expected to be a fare calculator. The fare of the user’s ride is scaled based on their location relative to their destination, with longer distances meaning higher fares. This also factors the road density and how busy they are at the time of ordering a ride.
+
+This can be broken down into individual inputs and outputs:
+
+Stage 1: Inputs
+
+The user will input the following details:
+
+- Pickup location
+- final destination
+- style of ride (budget, comfort, luxury, 4/6 seater)
+- payment method (by card or by cash)
+
+
+Once these factors are put in, the calculation stage will follow as such:
+
+Stage 2: Calculation
+
+As mentioned before, there are multiple factors that influence the final price of the ride.
+
+- Distance
+- style of ride
+- road density
+
+The program is designed to mimic a similar experience to a conventional digital ride-hailing app like Grab or Uber and will not order a real ride. Regardless, the fare calculations will be executed as such.
+
+
+Distance:
+
+There are two possible ways the script can be programmed to calculate distance:
+
+1. Real map-based GPS system.
+2. A fixed set of locations for the user to select from.
+
+
+Option 1 is more accurate to the technology chosen but is significantly harder to program. Option 2 is easier to program but presents an inaccurate experience.
+
+Regardless of which option is chosen, the distance of the road will comprise the largest percentage of the final price.
+
+Style of ride:
+
+The cost of the style of ride will be a fixed value. Luxury rides tend to cost an extra 4Rm compared to standard, so a set  of fixed, contrived values will be used.
+
+Road density:
+RNG-based value.
+
+Road density will take a random number between 1-10 after destination and pickup has been selected. The value generated will be multiplied by a certain factor and added to the total price.
+
+Ideally, the range of this value will range between 2-6 Rm from low-to-high road density.
+
+Stage 3: Output
+
+Once the distance between the pickup and destination has been selected, fare calculation begins. The distance between the pickup and destination will be measured then multiplied by a factor to convert the value into a price in Malaysian Ringgit (RM). Then, that value will be totaled with the style of ride and the road density before being displayed to the user.
