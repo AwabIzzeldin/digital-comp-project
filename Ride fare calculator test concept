@@ -1,26 +1,17 @@
 #include <iostream>
+#include <random>
 #include <string>
 
 int main()
 {
-    // interger values of each destination.
-    int MMUHB = 1;
-    int DTC = 2
-    int Zus = 3 ;
-    int ioi = 7;
-    int ark = 6;
-    int Tamarind = 5;
-    int DePulze = 4;
-
-    std::cout <<"\n"; //this is just to copy and paste. Ignore it
 
     std::cout <<"Welcome to the Ride Fare Calculator\n";
 
     std::cout <<"Let's begin.\n";
-    
+
 
     std::cout <<"Please select a pickup spot below.\n";
-
+    // the user selects from these three options
     std::cout <<"1. MMU STC building.\n";
     std::cout <<"2. MMU Dewan Tun Canselor\n";
     std::cout <<"3. Starbees MMU\n";
@@ -44,15 +35,13 @@ int main()
         
     }
 
-    //Three options are then presented, the user will select one by inputing a number. The option selected will have their own interger stored via int at the beginning
-    
     std::cout <<"Pickup selected.\n";
     std::cout <<"What type of ride would you like?\n";
 
-    std::cout <<"1. Standard (4 seats) || 2RM\n";
-    std::cout <<"2. Standard (6 seats)) || 3RM\n";
-    std::cout <<"3. Luxury (4 seats) || 4RM\n";
-    std::cout <<"4. Luxury (6 seats) || 6RM\n";
+    std::cout <<"1. Standard (4 seats)  || 2RM\n";
+    std::cout <<"2. Standard (6 seats)  || 3RM\n";
+    std::cout <<"3. Luxury (4 seats)    || 4RM\n";
+    std::cout <<"4. Luxury (6 seats)    || 6RM\n";
 
     std::cout <<"Input the number of your desired travel style.\n";
     std::cin >> styleChoice;
@@ -91,7 +80,7 @@ int main()
     switch (destinationChoice)
     {
         case 1:
-            destinationDistance = 6;
+            destinationDistance = 8;
             break;
         
         case 2:
@@ -99,26 +88,40 @@ int main()
             break; 
         
         case 3:
-            destinationDistance = 8;
+            destinationDistance = 6;
             break;
 
     }
 
     std::cout <<"Destination selected. Calculating fare...\n";
 
+    double roadDistance = destinationDistance - pickupDistance;
+    double price = (roadDistance * 2.8) + styleFee;
 
-    std::cout <<"Fare calculated. Your final price is" << price << "RM\n";
-    // Final price will be (Destination-Pickup)*x + (Selected Style of ride). Final cost can range from 5-20Rm based on the locations chosen and the style of ride.
-    // "x" will be a contrived interget that multiplies the distance between the two destinations to convert into RM. Basically a taxi fare
+    std::cout <<"Fare calculated. Your ride fare costs" << price << "RM\n";
+    
+    srand(time(NULL));
 
-    std::cout <<"Drivers detected, is that acceptable?\n";
-    // small RNG call for the amount of drivers detected (between 1-4). Number will be displayed with the string above
+    int drivers = (rand() % 4) + 1;
 
-    // the user will have the option to cancel the ride and end the process
-    // if so, the following Coroutine will occur
+
+    std::cout << drivers "drivers detected, is that acceptable?\n";
 
     std::cout <<"Are you sure you want to cancel?\n";
-    // if/else will be used here. Like [If:cancel, display (text). Else: ___ ]
+    std::cout <<"y/n\n";
+
+    stc::cin >> answer;
+
+    if (answer = y)
+    {
+        std::cout <<"Driver is on their way to the pick up point. Please "
+    };
+    
+    if (answer = n)
+    {
+        std::cout <<"Understood. Cancelling order.\n"
+    }
+
 
 
 }
