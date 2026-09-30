@@ -6,34 +6,108 @@ int main()
     // interger values of each destination.
     int MMUHB = 1;
     int DTC = 2
-    int Zus = 3 
+    int Zus = 3 ;
     int ioi = 7;
     int ark = 6;
     int Tamarind = 5;
     int DePulze = 4;
 
+    std::cout <<"\n";
 
     std::cout <<"Welcome to the Ride Fare Calculator\n";
+
     std::cout <<"Let's begin.\n";
     
 
-    std::cout <<"Pickup spots detected near your location\n"; //this line might be redundant
-    std::cout <<"Please select a pickup spot.\n";
+    std::cout <<"Please select a pickup spot below.\n";
+
+    std::cout <<"1. MMU STC building.\n";
+    std::cout <<"2. MMU Dewan Tun Canselor\n";
+    std::cout <<"3. Starbees MMU\n";
+
+    std::cout <<"Input the corresponding number of your destination\n";
+    std::cin >> pickupChoice;
+
+    switch (pickupChoice)
+    {
+        case 1:
+            pickupDistance = 1;
+            break;
+        
+        case 2:
+            pickupDistance = 2;
+            break; 
+        
+        case 3:
+            pickupDistance = 3;
+            break;
+        
+    }
 
     //Three options are then presented, the user will select one by inputing a number. The option selected will have their own interger stored via int at the beginning
     
     std::cout <<"Pickup selected.\n";
     std::cout <<"What type of ride would you like?\n";
 
-    //two options are presented. This will add a flat amount of RM to the final cost
+    std::cout <<"1. Standard (4 seats) || 2RM\n";
+    std::cout <<"2. Standard (6 seats)) || 3RM\n";
+    std::cout <<"3. Luxury (4 seats) || 4RM\n";
+    std::cout <<"4. Luxury (6 seats) || 6RM\n";
+
+    std::cout <<"Input the number of your desired travel style.\n";
+    std::cin >> styleChoice;
+
+    switch (styleChoice)
+    {
+        case 1:
+            styleFee = 2;
+            break;
+        
+        case 2:
+            styleFee = 3;
+            break; 
+        
+        case 3:
+            styleFee = 4;
+            break;
+
+        case 4:
+            styleFee = 6;
+            break;
+        
+    }
+
     
     std::cout <<"Ride selected, where would you like to go?\n";
+    std::cout <<"Please select a destination from below\n";
+
+    std::cout <<"1. IOI City Mall Putrajaya\n";
+    std::cout <<"2. Tamarind Square\n";
+    std::cout <<"3. DPULZE Shopping Center\n";
     
-    // three options are presented. Each destination will have an interger attached to them
+    std::cout <<"Input the number of your desired destination.\n";
+    std::cin >> destinationChoice;
+
+    switch (destinationChoice)
+    {
+        case 1:
+            destinationDistance = 6;
+            break;
+        
+        case 2:
+            destinationDistance = 7;
+            break; 
+        
+        case 3:
+            destinationDistance = 8;
+            break;
+
+    }
 
     std::cout <<"Destination selected. Calculating fare...\n";
 
-    std::cout <<"Fare calculated, your final price is" << price << "RM\n";
+
+    std::cout <<"Fare calculated. Your final price is" << price << "RM\n";
     // Final price will be (Destination-Pickup)*x + (Selected Style of ride). Final cost can range from 5-20Rm based on the locations chosen and the style of ride.
     // "x" will be a contrived interget that multiplies the distance between the two destinations to convert into RM. Basically a taxi fare
 
