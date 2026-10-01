@@ -6,11 +6,11 @@
 
 int main()
 {
-    int pickupChoice;
+    std::string pickupChoice;
     int pickupDistance;
-    int styleChoice;
+    std::string styleChoice;
     int styleFee;
-    int destinationChoice;
+    std::string destinationChoice;
     int destinationDistance;
     std::string cancel;
     std::string y = "y";
@@ -31,21 +31,31 @@ int main()
     std::cout <<"Input the corresponding number of your destination.\n";
     std::cin >> pickupChoice;
 
-    switch (pickupChoice)
+    do
     {
-        case 1:
-            pickupDistance = 1;
-            break;
-        
-        case 2:
-            pickupDistance = 2;
-            break; 
-        
-        case 3:
-            pickupDistance = 3;
-            break;
-        
+        if (pickupChoice == "1")
+    {
+        pickupDistance = 1;
     }
+
+    else if (pickupChoice == "2")
+    {
+        pickupDistance = 2;
+    }
+
+    else if (pickupChoice == "3")
+    {
+        pickupDistance = 3;
+    }
+
+    else
+    {
+        std::cout << "Invalid input. Please try again and enter 1, 2, or 3 to select your pickup point.\n";
+        std::cin >> pickupChoice;
+    }
+
+    } while (pickupChoice != "1" && pickupChoice != "2" && pickupChoice != "3");
+    
 
     std::cout <<"Pickup selected.\n";
     std::cout <<"What type of ride would you like?\n";
@@ -58,25 +68,36 @@ int main()
     std::cout <<"Input the number of your desired travel style.\n";
     std::cin >> styleChoice;
 
-    switch (styleChoice)
+    do
     {
-        case 1:
-            styleFee = 2;
-            break;
-        
-        case 2:
-            styleFee = 3;
-            break; 
-        
-        case 3:
-            styleFee = 4;
-            break;
-
-        case 4:
-            styleFee = 6;
-            break;
-        
+        if (styleChoice == "1")
+    {
+        styleFee = 2;
     }
+
+    else if (styleChoice == "2")
+    {
+        styleFee = 3;
+    }
+
+    else if (styleChoice == "3")
+    {
+        styleFee = 4;
+    }
+
+    else if (styleChoice == "4")
+    {
+        styleFee = 6;
+    }
+
+    else
+    {
+        std::cout << "Invalid input. Please try again and enter 1, 2, 3, or 4 to select your style of ride.\n";
+        std::cin >> styleChoice;
+    }
+
+    } while (styleChoice != "1" && styleChoice != "2" && styleChoice != "3" && styleChoice != "4");
+
 
     
     std::cout <<"Ride selected, where would you like to go?\n";
@@ -89,21 +110,30 @@ int main()
     std::cout <<"Input the number of your desired destination.\n";
     std::cin >> destinationChoice;
 
-    switch (destinationChoice)
+    do
     {
-        case 1:
-            destinationDistance = 8;
-            break;
-        
-        case 2:
-            destinationDistance = 7;
-            break; 
-        
-        case 3:
-            destinationDistance = 6;
-            break;
-
+        if (destinationChoice == "1")
+    {
+        destinationDistance = 8;
     }
+
+    else if (destinationChoice == "2")
+    {
+        destinationDistance = 7;
+    }
+
+    else if (destinationChoice == "3")
+    {
+        destinationDistance = 6;
+    }
+
+    else
+    {
+        std::cout << "Invalid input. Please try again and enter 1, 2, or 3 to select your destination.\n";
+        std::cin >> destinationChoice;
+    }
+
+    } while (destinationChoice != "1" && destinationChoice != "2" && destinationChoice != "3");
 
     std::cout <<"Destination selected. Calculating fare...\n";
 
@@ -123,21 +153,26 @@ int main()
     std::cout <<"Would you like to cancel?\n";
     std::cout <<"y/n\n";
 
-    std::cin >> cancel;
+    do
+    {
+        std::cin >> cancel;
 
-    if (cancel == n)
+        if (cancel == "n")
     {
         std::cout <<"Driver is on their way to the pick up point.\n";
+        return 0;
     }
     
-    else if (cancel == y)
+    else if (cancel == "y")
     {
         std::cout <<"Understood. Cancelling order.\n";
+        return 0;
     }
 
     else
     {
-        std::cout <<"Please answer with a lowercase 'y' or 'n'.";
-        std::cin >> cancel;
+        std::cout <<"Please answer with a lowercase 'y' or 'n'.\n";
     }
+
+    } while (cancel != "y" && cancel != "n");
 }
