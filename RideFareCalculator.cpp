@@ -11,6 +11,7 @@ int main()
     int pickupDistance;
     int styleFee;
     int destinationDistance;
+    std::string traffic;
     std::string pickupChoice;
     std::string styleChoice;
     std::string destinationChoice;
@@ -145,13 +146,34 @@ int main()
 
     std::cout <<"Destination selected. Calculating fare...\n";
 
+    srand(time(NULL));
+
+    int roadDensity = (rand() % 5); //Random Number generator for the road density
+
     // from the options selected before, calculation begins here.
 
     double roadDistance = destinationDistance - pickupDistance;
-    double price = (roadDistance * 2.8) + styleFee;
+    double price = (roadDistance * 2.2) + styleFee + roadDensity;
 
     std::cout <<"Fare calculated. Your ride fare costs [" << price << "RM]\n"; // price is displayed here
     
+    if (roadDensity > 3)
+    {
+        traffic = "high";
+    }
+
+    else if (roadDensity < 3)
+    {
+        traffic = "low";
+    }
+
+    else
+    {
+        traffic = "modest";
+    }
+
+    std::cout <<"Traffic is " << traffic <<" right now.\n";
+
     srand(time(NULL));
 
     int drivers = (rand() % 4) + 1; // this is an Random Number Generator for the number of drivers near the pickup spot.
