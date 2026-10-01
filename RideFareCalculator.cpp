@@ -6,12 +6,14 @@
 
 int main()
 {
-    std::string pickupChoice;
+
+    // initial values defined for the code to function. "int" is for storing numerical data. "std::string is used for typed data"
     int pickupDistance;
-    std::string styleChoice;
     int styleFee;
-    std::string destinationChoice;
     int destinationDistance;
+    std::string pickupChoice;
+    std::string styleChoice;
+    std::string destinationChoice;
     std::string cancel;
     std::string y = "y";
     std::string n = "n";
@@ -21,6 +23,7 @@ int main()
 
     std::cout <<"Let's begin.\n";
 
+    // stage 1 - pickup spot
 
     std::cout <<"Please select a pickup spot below.\n";
     // the user selects from these three options
@@ -29,7 +32,7 @@ int main()
     std::cout <<"3. Starbees MMU\n";
 
     std::cout <<"Input the corresponding number of your destination.\n";
-    std::cin >> pickupChoice;
+    std::cin >> pickupChoice; //user inputs their desired option here
 
     do
     {
@@ -53,9 +56,11 @@ int main()
         std::cout << "Invalid input. Please try again and enter 1, 2, or 3 to select your pickup point.\n";
         std::cin >> pickupChoice;
     }
-
+    // "while" checks if the input from the user is valid enough to proceed. If the input from the user does not match any of the choice, the function will loop.
     } while (pickupChoice != "1" && pickupChoice != "2" && pickupChoice != "3");
     
+
+    // stage 2 - style of ride
 
     std::cout <<"Pickup selected.\n";
     std::cout <<"What type of ride would you like?\n";
@@ -98,8 +103,11 @@ int main()
 
     } while (styleChoice != "1" && styleChoice != "2" && styleChoice != "3" && styleChoice != "4");
 
-
+    // the function above is similar to stage 1
     
+
+    // stage 3 - final destination
+
     std::cout <<"Ride selected, where would you like to go?\n";
     std::cout <<"Please select a destination from below\n";
 
@@ -137,17 +145,19 @@ int main()
 
     std::cout <<"Destination selected. Calculating fare...\n";
 
+    // from the options selected before, calculation begins here.
+
     double roadDistance = destinationDistance - pickupDistance;
     double price = (roadDistance * 2.8) + styleFee;
 
-    std::cout <<"Fare calculated. Your ride fare costs [" << price << "RM]\n";
+    std::cout <<"Fare calculated. Your ride fare costs [" << price << "RM]\n"; // price is displayed here
     
     srand(time(NULL));
 
-    int drivers = (rand() % 4) + 1;
+    int drivers = (rand() % 4) + 1; // this is an Random Number Generator for the number of drivers near the pickup spot.
 
 
-    std::cout << drivers << " drivers detected near your selected pickup spot.\n";
+    std::cout << drivers << " drivers detected near your selected pickup spot.\n"; // number of drivers displayed here
 
 
     std::cout <<"Would you like to cancel?\n";
@@ -168,11 +178,13 @@ int main()
         std::cout <<"Understood. Cancelling order.\n";
         return 0;
     }
+    
+    // the statements in the if/else if functions are the final strings before the program closes.
 
     else
     {
         std::cout <<"Please answer with a lowercase 'y' or 'n'.\n";
     }
 
-    } while (cancel != "y" && cancel != "n");
+    } while (cancel != "y" && cancel != "n"); // the program will continuously ask for a proper y/n answer
 }
