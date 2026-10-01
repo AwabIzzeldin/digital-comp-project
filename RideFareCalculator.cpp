@@ -1,9 +1,21 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include <random>
 #include <string>
 
 int main()
 {
+    int pickupChoice;
+    int pickupDistance;
+    int styleChoice;
+    int styleFee;
+    int destinationChoice;
+    int destinationDistance;
+    std::string cancel;
+    std::string y;
+    std::string n;
+    
 
     std::cout <<"Welcome to the Ride Fare Calculator\n";
 
@@ -16,7 +28,7 @@ int main()
     std::cout <<"2. MMU Dewan Tun Canselor\n";
     std::cout <<"3. Starbees MMU\n";
 
-    std::cout <<"Input the corresponding number of your destination\n";
+    std::cout <<"Input the corresponding number of your destination.\n";
     std::cin >> pickupChoice;
 
     switch (pickupChoice)
@@ -105,23 +117,29 @@ int main()
     int drivers = (rand() % 4) + 1;
 
 
-    std::cout << drivers "drivers detected, is that acceptable?\n";
+    std::cout << drivers << " drivers detected near your selected pickup spot.\n";
 
-    std::cout <<"Are you sure you want to cancel?\n";
+
+    std::cout <<"Would you like to cancel?\n";
     std::cout <<"y/n\n";
 
-    stc::cin >> answer;
+    std::cin >> cancel;
 
-    if (answer = y)
+    if (cancel == n)
     {
-        std::cout <<"Driver is on their way to the pick up point. Please "
-    };
+        std::cout <<"Driver is on their way to the pick up point.\n";
+    }
     
-    if (answer = n)
+    else if (cancel == y)
     {
-        std::cout <<"Understood. Cancelling order.\n"
+        std::cout <<"Understood. Cancelling order.\n";
     }
 
+    else
+    {
+        std::cout <<"Please answer with either a 'yes' or 'no'.";
+        std::cin >> cancel;
+    }
 
-
+    return 0;
 }
