@@ -7,7 +7,7 @@
 int main()
 {
 
-    // initial values defined for the code to function. "int" is for storing numerical data. "std::string is used for typed data"
+    // initial values defined for the code to function. "int" is for storing numerical data. "std::string" is used for typed data
     int pickupDistance;
     int styleFee;
     int destinationDistance;
