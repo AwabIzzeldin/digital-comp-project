@@ -13,8 +13,8 @@ int main()
     int destinationChoice;
     int destinationDistance;
     std::string cancel;
-    std::string y;
-    std::string n;
+    std::string y = "y";
+    std::string n = "n";
     
 
     std::cout <<"Welcome to the Ride Fare Calculator\n";
@@ -110,7 +110,7 @@ int main()
     double roadDistance = destinationDistance - pickupDistance;
     double price = (roadDistance * 2.8) + styleFee;
 
-    std::cout <<"Fare calculated. Your ride fare costs" << price << "RM\n";
+    std::cout <<"Fare calculated. Your ride fare costs [" << price << "RM]\n";
     
     srand(time(NULL));
 
@@ -137,9 +137,7 @@ int main()
 
     else
     {
-        std::cout <<"Please answer with either a 'yes' or 'no'.";
+        std::cout <<"Please answer with a lowercase 'y' or 'n'.";
         std::cin >> cancel;
     }
-
-    return 0;
 }
