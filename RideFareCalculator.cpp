@@ -157,12 +157,12 @@ int main()
 
     std::cout <<"Fare calculated. Your ride fare costs [" << price << "RM]\n"; // price is displayed here
     
-    if (roadDensity > 3)
+    if (roadDensity > 2)
     {
         traffic = "high";
     }
 
-    else if (roadDensity < 3)
+    else if (roadDensity < 2)
     {
         traffic = "low";
     }
